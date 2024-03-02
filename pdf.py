@@ -10,9 +10,8 @@ from langchain.chains import ConversationalRetrievalChain
 from chatCSS import css, bot_template, user_template
 import os
 
-# Load environment variables from .env file
-load_dotenv()
-openai_api_key = os.getenv("OPENAI_API_KEY")
+
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
 
 def get_pdf_text(pdf_docs):
@@ -63,6 +62,7 @@ def handle_userinput(user_question):
 
 
 def chatbot():
+  load_dotenv()
   st.write(css, unsafe_allow_html=True)
 
   if "conversation" not in st.session_state:
