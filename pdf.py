@@ -53,11 +53,10 @@ def get_conversation_chain(vectorstore):
 def handle_userinput(user_question):
     # Check if st.session_state.conversation is None
     if st.session_state.conversation is None:
-        # Reset st.session_state.conversation
-        st.session_state.conversation = None
 
         # Raise an exception
         st.error('This is an error, please upload pdf first', icon="🚨")
+        st.session_state.conversation = None
 
     response = st.session_state.conversation({'question': user_question})
     chat_history = response['chat_history']
