@@ -10,6 +10,7 @@ from langchain.llms import OpenAI
 # App framework
 
 def blog_creation():
+    load_dotenv()
     prompt = st.text_input("What is your blog post about?")
 
     headline_template = PromptTemplate(input_variables=['blog topic'],

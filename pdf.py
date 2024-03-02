@@ -58,6 +58,7 @@ def handle_userinput(user_question):
 
 
 def chatbot():
+  load_dotenv()
   st.write(css, unsafe_allow_html=True)
 
   if "conversation" not in st.session_state:
