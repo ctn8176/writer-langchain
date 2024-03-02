@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import json
 from langchain.chains import LLMChain, SequentialChain
 from langchain.prompts import PromptTemplate
-from langchain_community.llms import Writer
+# from langchain_community.llms import Writer
 from langchain.llms import OpenAI
 
 
@@ -20,10 +20,10 @@ def blog_creation():
                               template='write out a blog post for this headline HEADLINE: {headline}')
 
     # llm
-    Writer_llm = Writer()
+    # Writer_llm = Writer()
     OpenAI_llm = OpenAI(temperature=0.7)
 
-    headline_chain = LLMChain(llm=Writer_llm, prompt=headline_template, verbose='true', output_key='headline')
+    headline_chain = LLMChain(llm=OpenAI_llm, prompt=headline_template, verbose='true', output_key='headline')
     script_chain = LLMChain(llm=OpenAI_llm, prompt=script_template, verbose='true', output_key='script')
     sequential_chain = SequentialChain(chains=[headline_chain, script_chain],
                                        input_variables=['blog topic'], output_variables=['headline', 'script'], verbose=True)
