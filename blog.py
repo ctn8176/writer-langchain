@@ -7,13 +7,14 @@ from langchain.prompts import PromptTemplate
 from langchain.llms import OpenAI
 import os
 
-# Load environment variables from .env file
-load_dotenv()
-openai_api_key = os.getenv("OPENAI_API_KEY")
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
+os.environ['WRITER_API_KEY'] = st.secrets['WRITER_API_KEY']
+os.environ['WRITER_ORG_ID'] = st.secrets['WRITER_ORG_ID']
 
 # App framework
 
 def blog_creation():
+    load_dotenv()
     prompt = st.text_input("What is your blog post about?")
 
     headline_template = PromptTemplate(input_variables=['blog topic'],
