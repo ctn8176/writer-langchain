@@ -55,7 +55,7 @@ def handle_userinput(user_question):
     if st.session_state.conversation is None:
 
         # Raise an exception
-        st.error('This is an error, please refresh and process the pdf first', icon="🚨")
+        st.error('Please refresh the page and upload a PDF', icon="🚨")
         st.session_state.conversation = None
 
     response = st.session_state.conversation({'question': user_question})
