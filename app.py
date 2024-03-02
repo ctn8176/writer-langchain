@@ -1,6 +1,5 @@
 import streamlit as st
 from pdf import chatbot
-from blog import blog_creation
 
 def main():
     st.set_page_config(page_title="Writer <> Langchain Workflows", page_icon=":rocket:")
