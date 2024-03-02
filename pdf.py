@@ -51,6 +51,14 @@ def get_conversation_chain(vectorstore):
     return conversation_chain
 
 def handle_userinput(user_question):
+    # Check if st.session_state.conversation is None
+    if st.session_state.conversation is None:
+        # Reset st.session_state.conversation
+        st.session_state.conversation = None
+
+        # Raise an exception
+        raise StreamlitAPIException("Conversation is not initialized. Please upload PDF documents and click 'Process'.")
+
     response = st.session_state.conversation({'question': user_question})
     chat_history = response['chat_history']
 
