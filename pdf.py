@@ -57,7 +57,7 @@ def handle_userinput(user_question):
         st.session_state.conversation = None
 
         # Raise an exception
-        raise StreamlitAPIException("Conversation is not initialized. Please upload PDF documents and click 'Process'.")
+        st.error('This is an error, please upload pdf first', icon="🚨")
 
     response = st.session_state.conversation({'question': user_question})
     chat_history = response['chat_history']
