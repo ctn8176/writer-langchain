@@ -8,7 +8,6 @@ from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from chatCSS import css, bot_template, user_template
-from langchain_community.llms import Writer
 import os
 
 
