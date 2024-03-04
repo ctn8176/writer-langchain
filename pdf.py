@@ -9,15 +9,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from chatCSS import css, bot_template, user_template
 import os
-from langchain_community.llms.huggingface_pipeline import HuggingFacePipeline
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
-
-model_id = "gpt2"
-tokenizer = AutoTokenizer.from_pretrained(model_id)
-model = AutoModelForCausalLM.from_pretrained(model_id)
-pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=10)
-hf = HuggingFacePipeline(pipeline=pipe)
-
+from langchain.llms import HuggingFacePipeline
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 os.environ['WRITER_API_KEY'] = st.secrets['WRITER_API_KEY']
