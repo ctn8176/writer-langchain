@@ -15,7 +15,7 @@ import os
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 os.environ['WRITER_API_KEY'] = st.secrets['WRITER_API_KEY']
-os.environ['WRITER_ORG_ID'] = st.secrets['WRITER_ORG_ID]
+os.environ['WRITER_ORG_ID'] = st.secrets['WRITER_ORG_ID']
 
 
 def get_pdf_text(pdf_docs):
